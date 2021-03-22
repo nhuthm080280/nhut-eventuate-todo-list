@@ -23,7 +23,7 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - eventuate-examples-java-spring-todo-list-
 
-      - run: cd single-module && ./gradlew dependencies
+      # - run: cd single-module && ./gradlew dependencies
       - run: cd multi-module && ./gradlew dependencies
 
       - save_cache:
@@ -33,9 +33,9 @@ jobs:
           key: eventuate-examples-java-spring-todo-list-{{ checksum "single-module/gradle.properties" }}
 
       # run tests!
-      - run: cd single-module && ./build-and-test-all-eventuate-local-mysql.sh
-      - run: cd single-module && ./build-and-test-all-eventuate-local-postgres-polling.sh
-      - run: cd single-module && ./build-and-test-all-eventuate-local-postgres-wal.sh
-      - run: cd multi-module && ./build-and-test-all-eventuate-local-mysql.sh
+      # - run: cd single-module && ./build-and-test-all-eventuate-local-mysql.sh
+      # - run: cd single-module && ./build-and-test-all-eventuate-local-postgres-polling.sh
+      # - run: cd single-module && ./build-and-test-all-eventuate-local-postgres-wal.sh
+      # - run: cd multi-module && ./build-and-test-all-eventuate-local-mysql.sh
       - run: cd multi-module && ./build-and-test-all-eventuate-local-postgres-polling.sh
-      - run: cd multi-module && ./build-and-test-all-eventuate-local-postgres-wal.sh
+      # - run: cd multi-module && ./build-and-test-all-eventuate-local-postgres-wal.sh
