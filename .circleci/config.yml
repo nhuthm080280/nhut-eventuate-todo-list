@@ -4,6 +4,11 @@
 version: 2
 jobs:
   build:
+    docker:
+      - image: openjdk-8u91-jdk
+        auth:
+          username: nhuthuynhdocker
+          password: "@bc123456"
     machine: true
 
     working_directory: ~/repo
@@ -15,6 +20,9 @@ jobs:
 
     steps:
       - checkout
+      - setup_remote_docker:
+          version: 19.03.13
+          docker_layer_caching: true
 
       # Download and cache dependencies
       - restore_cache:
@@ -37,5 +45,6 @@ jobs:
       # - run: cd single-module && ./build-and-test-all-eventuate-local-postgres-polling.sh
       # - run: cd single-module && ./build-and-test-all-eventuate-local-postgres-wal.sh
       # - run: cd multi-module && ./build-and-test-all-eventuate-local-mysql.sh
-      - run: cd multi-module && ./build-and-test-all-eventuate-local-postgres-polling.sh
       # - run: cd multi-module && ./build-and-test-all-eventuate-local-postgres-wal.sh
+      - run: java --version
+      - run: cd multi-module && ./build-and-test-all-eventuate-local-postgres-polling.sh
