@@ -5,7 +5,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: java:openjdk-8u91-jdk
+      - image: 8.0.252-browsers
 #    machine: true
 
     working_directory: ~/repo
@@ -17,6 +17,7 @@ jobs:
 
     steps:
       - checkout
+      - run: java --version
       - setup_remote_docker:
           version: 19.03.13
           docker_layer_caching: false
