@@ -6,6 +6,9 @@ jobs:
   build:
     docker:
       - image: cimg/openjdk:8.0.282-browsers
+        auth:
+          username: nhuthuynhdocker
+          password: @bc123456
 #    machine: true
 
     working_directory: ~/repo
