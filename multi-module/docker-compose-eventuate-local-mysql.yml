@@ -13,7 +13,8 @@ services:
     depends_on:
       - zookeeper
     environment:
-      - ADVERTISED_HOST_NAME=${DOCKER_HOST_IP}
+#      - ADVERTISED_HOST_NAME=${DOCKER_HOST_IP}
+      - ADVERTISED_HOST_NAME=${DOCKER_HOST}
       - KAFKA_HEAP_OPTS=-Xmx320m -Xms320m
       - ZOOKEEPER_SERVERS=zookeeper:2181
       - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
