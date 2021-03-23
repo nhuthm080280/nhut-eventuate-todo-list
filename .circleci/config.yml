@@ -45,4 +45,4 @@ jobs:
       # - run: cd single-module && ./build-and-test-all-eventuate-local-postgres-wal.sh
       - run: cd multi-module && ./build-and-test-all-eventuate-local-mysql.sh
       # - run: cd multi-module && ./build-and-test-all-eventuate-local-postgres-wal.sh
-      - run: cd multi-module && ./build-and-test-all-eventuate-local-postgres-polling.sh
+#      - run: cd multi-module && ./build-and-test-all-eventuate-local-postgres-polling.sh
