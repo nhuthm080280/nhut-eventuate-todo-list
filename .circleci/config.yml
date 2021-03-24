@@ -33,8 +33,10 @@ jobs:
       # - run: cd single-module && ./gradlew dependencies
       - run: cd multi-module && ./gradlew dependencies
       - run: cd multi-module && ./gradlew clean build -x test
-      - run: copy multi-module/todo-service/build/libs/todo-service.jar .
-
+      - run:
+          name: Assemble JAR
+      - store_artifacts:
+          path: build/libs
       - save_cache:
           paths:
             - ~/.m2
