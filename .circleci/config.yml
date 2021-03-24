@@ -36,7 +36,7 @@ jobs:
       - run:
           name: Assemble JAR
           command: |
-#             Skip this for other nodes
+            # Skip this for other nodes
             if [ "$CIRCLE_NODE_INDEX" == 0 ]; then
               ./gradlew assemble
             fi
