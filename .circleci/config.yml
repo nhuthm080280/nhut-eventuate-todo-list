@@ -26,7 +26,7 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - eventuate-examples-java-spring-todo-list-{{ checksum "single-module/gradle.properties" }}
+          - eventuate-examples-java-spring-todo-list-{{ checksum "multi-module/gradle.properties" }}
           # fallback to using the latest cache if no exact match is found
           - eventuate-examples-java-spring-todo-list-
 
@@ -47,7 +47,7 @@ jobs:
           paths:
             - ~/.m2
             - ~/.gradle
-          key: eventuate-examples-java-spring-todo-list-{{ checksum "single-module/gradle.properties" }}
+          key: eventuate-examples-java-spring-todo-list-{{ checksum "multi-module/gradle.properties" }}
 
       # run tests!
       # - run: cd single-module && ./build-and-test-all-eventuate-local-mysql.sh
