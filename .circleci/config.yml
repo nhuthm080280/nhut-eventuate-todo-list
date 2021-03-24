@@ -42,7 +42,7 @@ jobs:
             fi
             # As the JAR was only assembled in the first build container, build/libs will be empty in all the other build containers.
       - store_artifacts:
-          path: build/libs
+          path: multi-module/todo-service/build/libs
       - save_cache:
           paths:
             - ~/.m2
