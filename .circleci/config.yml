@@ -33,7 +33,7 @@ jobs:
       # - run: cd single-module && ./gradlew dependencies
       - run: cd multi-module && ./gradlew dependencies
       - run: cd multi-module && ./gradlew clean build -x test
-      - run: cd multi-module/todo-service && ls -la
+      - run: copy multi-module/todo-service/build/libs/todo-service.jar .
 
       - save_cache:
           paths:
