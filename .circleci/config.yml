@@ -9,7 +9,7 @@ jobs:
         auth:
           username: $DOCKER_USER
           password: $DOCKER_PASS
-    working_directory: ~/repo/multi-module/todo-service
+    working_directory: ~/repo/
     environment:
       # Customize the JVM maximum heap limit
       IMAGE_NAME: nhuthuynhdocker/first-build-success
