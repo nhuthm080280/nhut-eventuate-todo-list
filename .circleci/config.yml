@@ -20,6 +20,8 @@ jobs:
       - checkout
       - setup_remote_docker
       # build and push Docker image
+      - run: cd multi-module/todo-service
+      - run: ls -la
       - run: 
           name: Build Docker image
           command: docker build -t $IMAGE_NAME:latest .
