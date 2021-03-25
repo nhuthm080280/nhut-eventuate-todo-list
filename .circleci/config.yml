@@ -21,7 +21,7 @@ jobs:
       - setup_remote_docker
       # build and push Docker image
       - run: ls -la
-      - run: cd multi-module/todo-service && ./gradlew assemble -P eventuateDriver=local
+      - run: cd multi-module && ./gradlew assemble -P eventuateDriver=local
       - run:
           name: Build Docker image
           command: docker build -t $IMAGE_NAME:latest .
