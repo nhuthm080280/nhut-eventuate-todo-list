@@ -24,7 +24,10 @@ jobs:
       - run: cd multi-module && ./gradlew assemble -P eventuateDriver=local
       - run:
           name: Build Docker image
-          command: docker build -t $IMAGE_NAME:latest . && docker push $IMAGE_NAME:latest
+          command: docker build -t $IMAGE_NAME:latest .
+      - run:
+          name: Push docker image
+          command: docker push $IMAGE_NAME:latest
 #       - run: |
 #           TAG=0.1.$CIRCLE_BUILD_NUM
 #           docker build -t nhuthuynh-circle-ci/nhut-eventuate-todo-list:$TAG .
