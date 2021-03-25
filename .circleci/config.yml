@@ -19,8 +19,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-          version: 19.03.13
-
       # build and push Docker image
       - run: |
           TAG=0.1.$CIRCLE_BUILD_NUM
