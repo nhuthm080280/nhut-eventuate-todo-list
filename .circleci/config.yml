@@ -49,10 +49,11 @@ jobs:
             - ~/.gradle
           key: eventuate-examples-java-spring-todo-list-{{ checksum "multi-module/gradle.properties" }}
 
-      # run tests!
-      # - run: cd single-module && ./build-and-test-all-eventuate-local-mysql.sh
-      # - run: cd single-module && ./build-and-test-all-eventuate-local-postgres-polling.sh
-      # - run: cd single-module && ./build-and-test-all-eventuate-local-postgres-wal.sh
-      # - run: cd multi-module && ./build-and-test-all-eventuate-local-mysql.sh
-      # - run: cd multi-module && ./build-and-test-all-eventuate-local-postgres-wal.sh
-      # - run: cd multi-module && ./build-and-test-all-eventuate-local-postgres-polling.sh
+      # after we are sure the tests are passing, lets push Docker image.
+      # we want to do it only for 'master' branch
+      - push_docker_image:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
