@@ -7,9 +7,9 @@ jobs:
     docker:
       - image: cimg/openjdk:8.0.282-browsers
         auth:
-          username: nhuthuynhdocker
-          password: "@bc123456"
-    working_directory: ~/repo/multi-module/todo-servuce
+          username: ${$DOCKER_USER}
+          password: ${$DOCKER_PASS}
+    working_directory: ~/repo
     environment:
       # Customize the JVM maximum heap limit
       IMAGE_NAME: nhuthuynhdocker/first-build-success
@@ -19,7 +19,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - run: docker images
+      - run: docker ps
       - run:
           name: Publish Docker Image to Docker Hub
           command: |
