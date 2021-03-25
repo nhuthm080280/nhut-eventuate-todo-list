@@ -27,7 +27,7 @@ jobs:
           command: docker build -t $IMAGE_NAME:latest .
       - run:
           name: Push docker image
-          command: echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin && docker push $IMAGE_NAME:latest
+          command: echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin && docker image push $IMAGE_NAME:latest
 #       - run: |
 #           TAG=0.1.$CIRCLE_BUILD_NUM
 #           docker build -t nhuthuynh-circle-ci/nhut-eventuate-todo-list:$TAG .
