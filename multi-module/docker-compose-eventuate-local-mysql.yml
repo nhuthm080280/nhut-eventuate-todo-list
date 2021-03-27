@@ -17,8 +17,6 @@ services:
       - KAFKA_HEAP_OPTS=-Xmx320m -Xms320m
       - ZOOKEEPER_SERVERS=zookeeper:2181
       - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
-
-
   cdcservice:
     image: eventuateio/eventuate-cdc-service:$EVENTUATE_CDC_VERSION
     ports:
@@ -32,8 +30,7 @@ services:
       SPRING_DATASOURCE_USERNAME: mysqluser
       SPRING_DATASOURCE_PASSWORD: mysqlpw
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.jdbc.Driver
-#      EVENTUATELOCAL_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
-      EVENTUATELOCAL_KAFKA_BOOTSTRAP_SERVERS: localhost:9092
+      EVENTUATELOCAL_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
       EVENTUATELOCAL_ZOOKEEPER_CONNECTION_STRING: zookeeper:2181
       EVENTUATELOCAL_CDC_DB_USER_NAME: root
       EVENTUATELOCAL_CDC_DB_PASSWORD: rootpassword
@@ -57,7 +54,7 @@ services:
 
 
   commandsideservice:
-    build: ./todo-service/
+    image: nhuthuynhdocker/eventuate-command-side-service:latest
     restart: unless-stopped
     ports:
       - "8081:8080"
@@ -76,7 +73,7 @@ services:
       EVENTUATELOCAL_CDC_DB_PASSWORD: rootpassword
 
   querysideservice:
-    build: ./todo-view-service/
+    image: nhuthuynhdocker/eventuate-query-side-service:latest
     restart: unless-stopped
     ports:
       - "8082:8080"
