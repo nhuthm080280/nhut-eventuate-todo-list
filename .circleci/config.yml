@@ -26,7 +26,7 @@ jobs:
       - run: cd multi-module && ./gradlew assemble -P eventuateDriver=local
       - run:
           name: Build Command Side Docker Image
-          command: docker build -t $IMAGE_NAME_COMMAND_SIDE:latest multi-module/todo-service/Dockerfile .
+          command: docker build -t $IMAGE_NAME_COMMAND_SIDE:latest -f multi-module/todo-service/Dockerfile .
       - run:
           name: Push Command Side  Docker Image
           command: echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin && docker image push $IMAGE_NAME_COMMAND_SIDE:latest
