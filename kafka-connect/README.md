@@ -67,5 +67,6 @@ check log:
 
 cat /logs/connectStandalone.out | grep -i “finished"
 
-
+# useful document
+https://datacadamia.com/dit/kafka/connector/sqlite_standalone
 
